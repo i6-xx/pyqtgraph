@@ -249,19 +249,22 @@ class Dock(QtGui.QWidget, DockDrop):
     def __repr__(self):
         return "<Dock %s %s>" % (self.name(), self.stretch())
 
+    ###!!!!!!!!!!!!!!!
+    #This introduces a bug without Pyside
+    
     ## PySide bug: We need to explicitly redefine these methods
     ## or else drag/drop events will not be delivered.
-    def dragEnterEvent(self, *args):
-        DockDrop.dragEnterEvent(self, *args)
+    #def dragEnterEvent(self, *args):
+    #    DockDrop.dragEnterEvent(self, *args)
 
-    def dragMoveEvent(self, *args):
-        DockDrop.dragMoveEvent(self, *args)
+    #def dragMoveEvent(self, *args):
+    #    DockDrop.dragMoveEvent(self, *args)
 
-    def dragLeaveEvent(self, *args):
-        DockDrop.dragLeaveEvent(self, *args)
+    #def dragLeaveEvent(self, *args):
+    #    DockDrop.dragLeaveEvent(self, *args)
 
-    def dropEvent(self, *args):
-        DockDrop.dropEvent(self, *args)
+    #def dropEvent(self, *args):
+    #    DockDrop.dropEvent(self, *args)
 
 
 class DockLabel(VerticalLabel):
