@@ -150,9 +150,9 @@ class Dock(QtGui.QWidget, DockDrop):
         By default ('auto'), the orientation is determined
         based on the aspect ratio of the Dock.
         """
-        #print self.name(), "setOrientation", o, force
+        #print( self.name(), "setOrientation", o, force,self.container() )
         if o == 'auto' and self.autoOrient:
-            if self.container().type() == 'tab':
+            if self.container() != None and self.container().type() == 'tab':
                 o = 'horizontal'
             elif self.width() > self.height()*1.5:
                 o = 'vertical'
