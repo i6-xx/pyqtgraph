@@ -101,6 +101,7 @@ class WidgetParameterItem(ParameterItem):
                 'value': 0, 'min': None, 'max': None,
                 'step': 1.0, 'dec': False, 
                 'siPrefix': False, 'suffix': '', 'decimals': 3,
+                'compactHeight': False
             }
             if t == 'int':
                 defs['int'] = True
