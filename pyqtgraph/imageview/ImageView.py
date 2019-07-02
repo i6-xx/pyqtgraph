@@ -633,7 +633,7 @@ class ImageView(QtGui.QWidget):
             ax = np.argmax(data.shape)
             sl = [slice(None)] * data.ndim
             sl[ax] = slice(None, None, 2)
-            data = data[sl]
+            data = data[tuple(sl)]
             
         cax = self.axes['c']
         if cax is None:
@@ -740,7 +740,7 @@ class ImageView(QtGui.QWidget):
             return (0,0)
         
         t = slider.value()
-        
+
         xv = self.tVals
         if xv is None:
             ind = int(t)
@@ -748,7 +748,7 @@ class ImageView(QtGui.QWidget):
             if len(xv) < 2:
                 return (0,0)
             totTime = xv[-1] + (xv[-1]-xv[-2])
-            inds = np.argwhere(xv < t)
+            inds = np.argwhere(xv <= t)
             if len(inds) < 1:
                 return (0,t)
             ind = inds[-1,0]
